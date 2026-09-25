@@ -4,6 +4,8 @@
 
 Horloges murales connectées sur écran **ESP32-2432S028** (« Cheap Yellow Display », 2,8" 320×240), alimentées par MQTT.
 
+![Horloge AstroClock sur ESP32-2432S028](docs/images/horloge_cyd.jpg)
+
 Chaque afficheur montre :
 
 - l'heure (HH:MM, grands chiffres) ;
@@ -240,6 +242,8 @@ python astro_clock.py
 ```
 
 ## Module RTC de secours (`firmware/RtcBackup`)
+
+![Module RTC de secours en boîtier DIN](docs/images/horloge-rtc.jpg)
 
 ### Rôle
 

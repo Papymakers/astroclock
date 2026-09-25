@@ -4,6 +4,8 @@
 
 Connected wall clocks on the **ESP32-2432S028** board ("Cheap Yellow Display", 2.8" 320×240), fed over MQTT.
 
+![AstroClock with ESP32-2432S028](docs/images/horloge.jpg)
+
 Each display shows:
 
 - the time (HH:MM, large digits);
@@ -239,6 +241,8 @@ python astro_clock.py
 ```
 
 ## Backup RTC module (`firmware/RtcBackup`)
+
+![BackUp RTC module with DIN case](docs/images/module-rtc.jpg)
 
 ### Purpose
 
