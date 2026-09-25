@@ -1,0 +1,5 @@
+flask
+flask-socketio
+paho-mqtt>=2.0
+astral>=2.2
+pytz

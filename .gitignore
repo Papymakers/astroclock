@@ -1,0 +1,14 @@
+# Identifiants WiFi
+secrets.h
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+
+# Éditeurs / build
+.vscode/
+.pio/
+build/
