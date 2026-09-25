@@ -4,8 +4,6 @@
 
 Horloges murales connectées sur écran **ESP32-2432S028** (« Cheap Yellow Display », 2,8" 320×240), alimentées par MQTT.
 
-![Horloge AstroClock sur ESP32-2432S028](docs/images/horloge_cyd.jpg)
-
 Chaque afficheur montre :
 
 - l'heure (HH:MM, grands chiffres) ;
@@ -44,6 +42,7 @@ astroclock/
 ├── server/
 │   ├── astro_clock.py          diffusion de l'heure, des données astro et page web
 │   └── requirements.txt
+├── docs/images/               photos
 ├── README.md
 └── README.en.md
 ```
@@ -135,15 +134,24 @@ Pour obtenir la variation de luminosité jour/nuit :
 
 Le firmware pilote alors le rétroéclairage en PWM sur GPIO 22 (5 kHz, 8 bits).
 
-Pour plus de détails, schémas à l'appui, voir le dépôt CYD-Heating-Remote-2zones / hardware.
+Pour plus de détails, schémas à l'appui, voir le dépôt [CYD-Heating-Remote-2zones / hardware](https://github.com/Papymakers/CYD-Heating-Remote-2zones/tree/main/hardware).
 
 **Sans cette modification**, l'horloge fonctionne, mais sans variation de luminosité. Il faut alors laisser TFT_eSPI allumer l'écran en permanence en définissant dans sa configuration :
-
 
 ```cpp
 #define TFT_BL 21
 #define TFT_BACKLIGHT_ON HIGH
 ```
+
+### Alimentation 230 V (option)
+
+L'horloge peut être alimentée directement sur le secteur grâce à la carte **Alimentation 230VAC → 5V DC** (carte A, configuration A1 : module Hi-Link HLK-5M05, 5 V / 1 A). La carte se fixe au dos du CYD sur entretoises. Elle intègre fusible, self de mode commun, varistance et condensateur de filtrage. Le CYD consomme typiquement 200 à 350 mA.
+
+![Alimentation 230 V montée au dos de l'horloge](docs/images/alim_secteur.jpg)
+
+Schémas, nomenclature et fichiers de fabrication : dépôt [Alimentation-230VAC-5V-9V-DC-5W](https://github.com/Papymakers/Alimentation-230VAC-5V-9V-DC-5W).
+
+> ⚠️ **230 V AC** : le raccordement au secteur exige une habilitation électrique (NF C 18-510). Ne jamais manipuler la carte sous tension.
 
 ## Firmware
 
@@ -242,8 +250,6 @@ python astro_clock.py
 ```
 
 ## Module RTC de secours (`firmware/RtcBackup`)
-
-![Module RTC de secours en boîtier DIN](docs/images/horloge-rtc.jpg)
 
 ### Rôle
 

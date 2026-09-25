@@ -4,8 +4,6 @@
 
 Connected wall clocks on the **ESP32-2432S028** board ("Cheap Yellow Display", 2.8" 320×240), fed over MQTT.
 
-![AstroClock with ESP32-2432S028](docs/images/horloge.jpg)
-
 Each display shows:
 
 - the time (HH:MM, large digits);
@@ -44,6 +42,7 @@ astroclock/
 ├── server/
 │   ├── astro_clock.py          time/astro broadcaster and web page
 │   └── requirements.txt
+├── docs/images/               photos
 ├── README.md
 └── README.en.md
 ```
@@ -144,6 +143,16 @@ For full details and schematics, see the [CYD-Heating-Remote-2zones / hardware](
 #define TFT_BACKLIGHT_ON HIGH
 ```
 
+### 230 V power supply (option)
+
+The clock can be powered straight from the mains with the **230VAC → 5V DC power supply** board (board A, configuration A1: Hi-Link HLK-5M05 module, 5 V / 1 A). The board mounts on the back of the CYD on standoffs. It includes a fuse, common-mode choke, varistor and filter capacitor. The CYD typically draws 200 to 350 mA.
+
+![230 V power supply mounted on the back of the clock](docs/images/alim_secteur.jpg)
+
+Schematics, bill of materials and manufacturing files: [Alimentation-230VAC-5V-9V-DC-5W](https://github.com/Papymakers/Alimentation-230VAC-5V-9V-DC-5W) repository.
+
+> ⚠️ **230 V AC**: mains connection must be carried out by a qualified person. Never handle the board while powered.
+
 ## Firmware
 
 ### Requirements
@@ -241,8 +250,6 @@ python astro_clock.py
 ```
 
 ## Backup RTC module (`firmware/RtcBackup`)
-
-![BackUp RTC module with DIN case](docs/images/module-rtc.jpg)
 
 ### Purpose
 
